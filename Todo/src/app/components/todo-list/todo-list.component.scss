@@ -1,0 +1,57 @@
+@import '~pretty-checkbox/src/pretty-checkbox.scss';
+.todo-input{
+    width: 80%;
+    padding: 10px 18px;
+    font-size: 18px;
+    margin-bottom: 16px;
+    text-align: center;
+    &:focus{
+        outline: 0;
+    }
+    border-radius: 10px;
+}
+
+.todo-item, .todo-item-left{
+    display: flex;
+    margin-bottom: 5px;
+    font-size: 20px;
+    padding: 1%;
+    
+
+    &:nth-child(even){
+        background-color: #dbdbdbab;
+    }
+}
+.todo-item{
+    position: relative;
+}
+
+.todo-item-left{
+    cursor: pointer;
+}
+
+.remove-item{
+    position: absolute;
+    right: 20px;
+    &:hover{
+        color:gray;
+    }
+    &:active{
+        bottom:1px;
+        color:red;
+    }
+	border-radius:5px;
+	display:inline-block;
+	cursor:pointer;
+	color:black;
+}
+
+.completed{
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.todo-item-label, .completed
+{
+    margin-left: 15%;
+}

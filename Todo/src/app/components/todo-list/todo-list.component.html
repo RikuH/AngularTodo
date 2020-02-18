@@ -1,0 +1,32 @@
+<h1>Todo</h1>
+
+<input type="text" class="todo-input" placeholder="What needs to be done" #itemTitle (keyup.enter)="onAdd(itemTitle)">
+
+<!--<div class="todo-item" *ngFor="let todo of todosFiltered()" @fade>-->
+<div class="todo-item" *ngFor="let todo of ToDoListArray" @fade>
+    <div class="todo-item-left">
+
+
+        <div class="pretty p-default p-thick p-pulse">
+
+            <input type="checkbox" (click)="toggleTodo(todo.$key, !todo.isChecked)" *ngIf="!todo.isChecked; else jees">
+            <ng-template #jees><input type="checkbox" (click)="toggleTodo(todo.$key, !todo.isChecked)" checked>
+            </ng-template>
+
+            <div class="state p-success p-on">
+
+                <label class="todo-item-label" (click)="toggleTodo(todo.$key, !todo.isChecked)"
+                    *ngIf="!todo.isChecked; else notToggled">
+                    {{todo.title}}
+                </label>
+
+                <ng-template #notToggled>
+                    <label class="completed" (click)="toggleTodo(todo.$key, !todo.isChecked)">
+                        {{todo.title}}
+                    </label>
+                </ng-template>
+
+            </div>
+        </div>
+        <div class="remove-item" (click)="deleteTodo(todo.$key)"><i class="fa fa-trash"></i></div>
+    </div>
